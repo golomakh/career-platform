@@ -1,0 +1,34 @@
+
+<!-- Templates in Django are HTML pages that can dynamically display data passed from views -->
+<!-- template has been created that will receive data from a view. -->
+
+<!-- This piece of code is written entirely using ChatGPT, I only set the task and logic -->
+
+<!-- idp_app/templates/learning_plans.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Learning Plans</title>
+</head>
+<body>
+    <h1>Your Learning Plans</h1>
+    
+    <!-- We start a cycle to display all development plans -->
+    <ul>
+        {% for plan in plans %}  <!-- The loop iterates over all the curricula from the plans variable. -->
+            <li>
+                <!-- Displaying the name of the topic for the current development plan -->
+                {{ plan.topic.title }} - Status: {{ plan.status }} 
+            </li>
+        {% empty %}  <!-- This block will be displayed if the plans variable is empty (for example, if the user has no study plans) -->
+            <li>No learning plans found.</li>
+        {% endfor %}  <!-- Closing the loop -->
+    </ul>
+
+</body>
+</html>
+
